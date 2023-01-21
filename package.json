@@ -1,7 +1,7 @@
 {
   "name": "react-web3auth-example",
   "version": "0.1.0",
-  "homepage": "https://japanlembas.github.io/japanlembas.github.io",
+  "homepage": "https://japanlembas.github.io/w3-auth-test",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
