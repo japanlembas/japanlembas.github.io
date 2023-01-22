@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/w3-auth-test/static/css/main.32e8f7fe.css",
-    "main.js": "/w3-auth-test/static/js/main.c2d6c381.js",
+    "main.js": "/w3-auth-test/static/js/main.f085b7f7.js",
     "static/js/608.7de1b6ba.chunk.js": "/w3-auth-test/static/js/608.7de1b6ba.chunk.js",
     "static/js/449.3cc92d0e.chunk.js": "/w3-auth-test/static/js/449.3cc92d0e.chunk.js",
     "static/js/950.287df91f.chunk.js": "/w3-auth-test/static/js/950.287df91f.chunk.js",
@@ -11,7 +11,7 @@
     "static/js/413.45babfa7.chunk.js": "/w3-auth-test/static/js/413.45babfa7.chunk.js",
     "index.html": "/w3-auth-test/index.html",
     "main.32e8f7fe.css.map": "/w3-auth-test/static/css/main.32e8f7fe.css.map",
-    "main.c2d6c381.js.map": "/w3-auth-test/static/js/main.c2d6c381.js.map",
+    "main.f085b7f7.js.map": "/w3-auth-test/static/js/main.f085b7f7.js.map",
     "950.287df91f.chunk.js.map": "/w3-auth-test/static/js/950.287df91f.chunk.js.map",
     "32.7987b463.chunk.js.map": "/w3-auth-test/static/js/32.7987b463.chunk.js.map",
     "130.166b7931.chunk.js.map": "/w3-auth-test/static/js/130.166b7931.chunk.js.map",
@@ -20,6 +20,6 @@
   },
   "entrypoints": [
     "static/css/main.32e8f7fe.css",
-    "static/js/main.c2d6c381.js"
+    "static/js/main.f085b7f7.js"
   ]
 }
