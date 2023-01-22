@@ -7,7 +7,7 @@ import { TorusWalletConnectorPlugin } from "@web3auth/torus-wallet-connector-plu
 import RPC from "./web3RPC";
 import "./App.css";
 
-const clientId = "BNS5V05EvJr_Yp-sCGJLNNK6JZlkxUKOPvMNURUPI5Jv6uvPnTebkpZHgjTSwZzkUUg2pkkm7LERUhy_GwGT0LU"; // get from https://dashboard.web3auth.io
+const clientId = "BDTiVaZl5-0GMZVvWCwRpTiTEZzcn9vSxcNdj_VgKvGtJeLzwlJ4izL2KlShze8TlbLDdRjXC_Y8rgHdOMDk0Ok"; // get from https://dashboard.web3auth.io
 //const clientId = 'YOUR_WEB3AUTH_CLIENT_ID';
 function App() {
   const [web3auth, setWeb3auth] = useState<Web3AuthCore | null>(null);
