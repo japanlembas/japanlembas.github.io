@@ -27,14 +27,14 @@ function App() {
         });
 
 
-        /*const openloginAdapter = new OpenloginAdapter({
+        const openloginAdapter = new OpenloginAdapter({
           adapterSettings: {
             network: "mainnet",
             uxMode: "redirect",
           },
         });
 
-        web3auth.configureAdapter(openloginAdapter);*/
+        web3auth.configureAdapter(openloginAdapter);
 
         // const torusWalletAdapter = new TorusWalletAdapter({
         //   adapterSettings: {
