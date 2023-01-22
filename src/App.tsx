@@ -18,7 +18,7 @@ function App() {
       try {
         const web3auth = new Web3AuthCore({
           clientId,
-          web3AuthNetwork: "mainnet", // mainnet, aqua, celeste, cyan or testnet
+          web3AuthNetwork: "cyan", // mainnet, aqua, celeste, cyan or testnet
           chainConfig: {
             chainNamespace: CHAIN_NAMESPACES.EIP155,
             chainId: "0x89",//"0x13881",
@@ -29,7 +29,7 @@ function App() {
 
         const openloginAdapter = new OpenloginAdapter({
           adapterSettings: {
-            network: "mainnet",
+            network: "cyan",
             uxMode: "redirect",
           },
         });
