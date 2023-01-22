@@ -7,7 +7,7 @@ import { TorusWalletConnectorPlugin } from "@web3auth/torus-wallet-connector-plu
 import RPC from "./web3RPC";
 import "./App.css";
 
-const clientId = "BDTiVaZl5-0GMZVvWCwRpTiTEZzcn9vSxcNdj_VgKvGtJeLzwlJ4izL2KlShze8TlbLDdRjXC_Y8rgHdOMDk0Ok"; // get from https://dashboard.web3auth.io
+const clientId = "BK8c8qvNoRUb1pQimsAjePSwooayZs2uQnj6Yd4MtZs0tQiu6vb2sO3iEqxsF1Btca4fUaYKOdBduV3G7KRcsqA"; // get from https://dashboard.web3auth.io
 //const clientId = 'YOUR_WEB3AUTH_CLIENT_ID';
 function App() {
   const [web3auth, setWeb3auth] = useState<Web3AuthCore | null>(null);
@@ -18,7 +18,7 @@ function App() {
       try {
         const web3auth = new Web3AuthCore({
           clientId,
-          web3AuthNetwork: "cyan", // mainnet, aqua, celeste, cyan or testnet
+          web3AuthNetwork: "mainnet", // mainnet, aqua, celeste, cyan or testnet
           chainConfig: {
             chainNamespace: CHAIN_NAMESPACES.EIP155,
             chainId: "0x89",//"0x13881",
@@ -29,7 +29,7 @@ function App() {
 
         const openloginAdapter = new OpenloginAdapter({
           adapterSettings: {
-            network: "cyan",
+            network: "mainnet",
             uxMode: "redirect",
           },
         });
