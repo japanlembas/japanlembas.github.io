@@ -327,7 +327,7 @@ function App() {
       <div className="grid">{provider ? loggedInView : unloggedInView}</div>
 
       <footer className="footer">
-        <a href="https://github.com/Web3Auth/examples" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/japanlembas/w3-auth-test" target="_blank" rel="noopener noreferrer">
           Source code
         </a>
       </footer>
