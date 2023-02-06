@@ -42,7 +42,7 @@
 	border: 1px solid #0070f3;
 	border-radius: 10px;
 	transition: color 0.15s ease, border-color 0.15s ease;
-	width: 100%;
+	width: 300px;
 }
 
 .card:hover,
@@ -100,4 +100,13 @@
 	word-wrap: break-word;
 	font-size: 16px;
 	font-family: monospace;
+}
+
+.email {
+	width: 300px;
+	margin: 0.5rem;
+	padding: 0.7rem;
+	text-decoration: none;
+	border-radius: 10px;
+	border: 1px solid #afafaf;
 }
