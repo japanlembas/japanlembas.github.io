@@ -6,12 +6,18 @@ import { TorusWalletAdapter } from "@web3auth/torus-evm-adapter";
 import { TorusWalletConnectorPlugin } from "@web3auth/torus-wallet-connector-plugin";
 import RPC from "./web3RPC";
 import "./App.css";
+import { ChangeEvent } from "react";
 
 const clientId = "BK8c8qvNoRUb1pQimsAjePSwooayZs2uQnj6Yd4MtZs0tQiu6vb2sO3iEqxsF1Btca4fUaYKOdBduV3G7KRcsqA"; // get from https://dashboard.web3auth.io
 //const clientId = 'YOUR_WEB3AUTH_CLIENT_ID';
 function App() {
   const [web3auth, setWeb3auth] = useState<Web3AuthCore | null>(null);
   const [provider, setProvider] = useState<SafeEventEmitterProvider | null>(null);
+  const [email, setEmail] = useState<String | null>(null);
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value);
+  };
 
   useEffect(() => {
     const init = async () => {
@@ -95,7 +101,7 @@ function App() {
     init();
   }, []);
 
-  const login = async () => {
+  const loginGoogle = async () => {
     if (!web3auth) {
       uiConsole("web3auth not initialized yet");
       return;
@@ -104,10 +110,29 @@ function App() {
     const web3authProvider = await web3auth.connectTo(WALLET_ADAPTERS.OPENLOGIN, {
       mfaLevel: "default", // Pass on the mfa level of your choice: default, optional, mandatory, none
       loginProvider: "google", // Pass on the login provider of your choice: google, facebook, discord, twitch, twitter, github, linkedin, apple, etc.
+    });
+    setProvider(web3authProvider);
+  };
+
+  const loginEmail = async () => {
+    if (!web3auth) {
+      uiConsole("web3auth not initialized yet");
+      return;
+    }
+
+    if (!email) {
+      uiConsole("email is empty");
+      console.log("email is empty");
+      return;
+    }
+  
+    const web3authProvider = await web3auth.connectTo(WALLET_ADAPTERS.OPENLOGIN, {
+      mfaLevel: "default", // Pass on the mfa level of your choice: default, optional, mandatory, none
+      loginProvider: "email_passwordless", // Pass on the login provider of your choice: google, facebook, discord, twitch, twitter, github, linkedin, apple, etc.
       // redirectUrl: "http://localhost:3000/",
-      // extraLoginOptions: {
-      //   login_hint: "iravilov@flintera.com",
-      // },
+       extraLoginOptions: {
+         login_hint: email,
+       }
     });
     setProvider(web3authProvider);
   };
@@ -262,9 +287,16 @@ function App() {
   );
 
   const unloggedInView = (
-    <button onClick={login} className="card">
-      Login
+    <div>
+    <button onClick={loginGoogle} className="card">
+      Login with Google
     </button>
+    <hr></hr>
+    <input type="text" id="email" className="email" placeholder="Your Email" onChange={handleChange} value={email?.toLowerCase()}></input>
+    <button onClick={loginEmail} className="card">
+      Login with Email
+    </button>
+  </div>
   );
 
   return (
