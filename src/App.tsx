@@ -71,19 +71,19 @@ function App() {
         // // it will add/update  the torus-evm adapter in to web3auth class
         // web3auth.configureAdapter(torusWalletAdapter);
 
-        // const torusPlugin = new TorusWalletConnectorPlugin({
-        //   torusWalletOpts: {},
-        //   walletInitOptions: {
-        //     whiteLabel: {
-        //       theme: { isDark: true, colors: { primary: "#00a8ff" } },
-        //       logoDark: "https://web3auth.io/images/w3a-L-Favicon-1.svg",
-        //       logoLight: "https://web3auth.io/images/w3a-D-Favicon-1.svg",
-        //     },
-        //     useWalletConnect: true,
-        //     enableLogging: true,
-        //   },
-        // });
-        // await web3auth.addPlugin(torusPlugin);
+        const torusPlugin = new TorusWalletConnectorPlugin({
+          torusWalletOpts: {},
+          walletInitOptions: {
+            whiteLabel: {
+              theme: { isDark: true, colors: { primary: "#031F2C" } },
+              logoDark: "https://web3auth.io/images/w3a-L-Favicon-1.svg",
+              logoLight: "https://web3auth.io/images/w3a-D-Favicon-1.svg",
+            },
+            useWalletConnect: true,
+            enableLogging: true,
+          },
+        });
+        await web3auth.addPlugin(torusPlugin);
 
         setWeb3auth(web3auth);
 
@@ -110,6 +110,19 @@ function App() {
     const web3authProvider = await web3auth.connectTo(WALLET_ADAPTERS.OPENLOGIN, {
       mfaLevel: "default", // Pass on the mfa level of your choice: default, optional, mandatory, none
       loginProvider: "google", // Pass on the login provider of your choice: google, facebook, discord, twitch, twitter, github, linkedin, apple, etc.
+    });
+    setProvider(web3authProvider);
+  };
+
+  const loginTwitter = async () => {
+    if (!web3auth) {
+      uiConsole("web3auth not initialized yet");
+      return;
+    }
+  
+    const web3authProvider = await web3auth.connectTo(WALLET_ADAPTERS.OPENLOGIN, {
+      mfaLevel: "default", // Pass on the mfa level of your choice: default, optional, mandatory, none
+      loginProvider: "twitter", // Pass on the login provider of your choice: google, facebook, discord, twitch, twitter, github, linkedin, apple, etc.
     });
     setProvider(web3authProvider);
   };
@@ -290,6 +303,9 @@ function App() {
     <div>
     <button onClick={loginGoogle} className="card">
       Login with Google
+    </button>
+    <button onClick={loginTwitter} className="card">
+      Login with Twitter
     </button>
     <hr></hr>
     <input type="text" id="email" className="email" placeholder="Your Email" onChange={handleChange} value={email?.toLowerCase()}></input>
